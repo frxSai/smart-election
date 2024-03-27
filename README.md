@@ -2,6 +2,7 @@
 install node.js
 
 
+install bootstrap and lite-server
 - npm i bootstrap @truffle/contract web3@1.10.4 jquery
 - npm i -g lite-server
 
