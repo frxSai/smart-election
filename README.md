@@ -14,7 +14,6 @@ Run ganache-cli (local Ethereum blockchain)
 - ganache-cli
 
 Run migrate (blockchain network)
-- truffle migrate
 - truffle migrate --reset
 
 run
