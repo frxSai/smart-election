@@ -21,26 +21,6 @@ const StartEnd = (props) => {
           {/* */}
           {!props.elEnded ? (
             <>
-              <div
-                className="container-item attention"
-                style={{ display: "block" }}
-              >
-                <h2 className="title-hero-black">!!! Do not forget to add candidates.</h2>
-                <p className="title-hero-black-small">
-                  Go to{" "}
-                  <Link
-                    title="Add a new "
-                    to="/addCandidate"
-                    style={{
-                      color: "black",
-                      textDecoration: "underline",
-                    }}
-                  >
-                    add candidates
-                  </Link>{" "}
-                  page.
-                </p>
-              </div>
               <div className="container-item">
                 <button className="btn font-btn" type="submit" style={btn}>
                   Start-Event {props.elEnded ? "Again" : null}

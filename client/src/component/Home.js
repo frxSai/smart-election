@@ -115,18 +115,6 @@ export default class Home extends Component {
           <div className="container-item center-items info">
             Your Account: {this.state.account}
           </div>
-          {!this.state.elStarted & !this.state.elEnded ? (
-            <div className="container-item info">
-              <center>
-                <h3>The election has not been initialize.</h3>
-                {this.state.isAdmin ? (
-                  <p>Set up the election.</p>
-                ) : (
-                  <p>Please wait..</p>
-                )}
-              </center>
-            </div>
-          ) : null}
         </div>
         {this.state.isAdmin ? (
           <>
@@ -141,13 +129,6 @@ export default class Home extends Component {
             <div className="container-item attention">
               <center>
                 <h3>The Election ended.</h3>
-                <br />
-                <Link
-                  to="/Results"
-                  style={{ color: "black", textDecoration: "underline" }}
-                >
-                  See results
-                </Link>
               </center>
             </div>
           </>
