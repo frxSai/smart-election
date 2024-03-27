@@ -20,7 +20,7 @@ const ElectionStatus = (props) => {
       className="container-main"
       style={{ borderTop: "none", marginTop: "0px", display: "none" }}
     >
-      <h3 className="title-hero"><ion-icon name="star-outline"></ion-icon> Event-Status</h3>
+      <h3 className="title-hero"> Event-Status</h3>
       <div style={electionStatus} className="status">
         <p>Started: {props.elStarted ? "True" : "False"}</p>
         <p>Ended: {props.elEnded ? "True" : "False"}</p>

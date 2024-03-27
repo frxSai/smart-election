@@ -46,7 +46,7 @@ const StartEnd = (props) => {
         <>
           <div className="container-item fix-container">
             <center>
-              <h1><ion-icon name="flash-outline"></ion-icon>The election started.</h1>
+              <h1>The election started.</h1>
             </center>
           </div>
           <div className="container-item fix-container">
