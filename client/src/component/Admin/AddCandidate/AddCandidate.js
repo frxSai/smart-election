@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-
 import Navbar from "../../Navbar/Navigation";
 import NavbarAdmin from "../../Navbar/NavigationAdmin";
-
 import getWeb3 from "../../../getWeb3";
 import Election from "../../../contracts/Election.json";
-
 import AdminOnly from "../../AdminOnly";
-
 import "./AddCandidate.css";
 
 export default class AddCandidate extends Component {
@@ -33,9 +29,7 @@ export default class AddCandidate extends Component {
 
     try {
       const web3 = await getWeb3();
-
       const accounts = await web3.eth.getAccounts();
-
       const networkId = await web3.eth.net.getId();
       const deployedNetwork = Election.networks[networkId];
       const instance = new web3.eth.Contract(
@@ -58,6 +52,9 @@ export default class AddCandidate extends Component {
         this.setState({ isAdmin: true });
       }
 
+      // Automatically generate 4 candidates when the component mounts
+      await this.autoAddCandidates();
+
       for (let i = 0; i < this.state.candidateCount; i++) {
         const candidate = await this.state.ElectionInstance.methods
           .candidateDetails(i)
@@ -77,9 +74,11 @@ export default class AddCandidate extends Component {
       );
     }
   };
+
   updateHeader = (event) => {
     this.setState({ header: event.target.value });
   };
+
   updateSlogan = (event) => {
     this.setState({ slogan: event.target.value });
   };
@@ -90,6 +89,21 @@ export default class AddCandidate extends Component {
       .send({ from: this.state.account, gas: 1000000 });
     window.location.reload();
   };
+
+  // Function to auto add 4 candidates
+  autoAddCandidates = async () => {
+    const candidatesToAdd = ["Candidate 1", "Candidate 2", "Candidate 3", "Candidate 4"];
+    
+    // Check if the current number of candidates is less than 4 before adding more
+    const currentCandidateCount = await this.state.ElectionInstance.methods.getTotalCandidate().call();
+    const candidatesToAddCount = Math.min(4 - currentCandidateCount, candidatesToAdd.length);
+    
+    for (let i = 0; i < candidatesToAddCount; i++) {
+      await this.state.ElectionInstance.methods
+        .addCandidate(candidatesToAdd[i], "Auto-generated slogan")
+        .send({ from: this.state.account, gas: 1000000 });
+    }
+};
 
   render() {
     if (!this.state.web3) {
@@ -111,60 +125,13 @@ export default class AddCandidate extends Component {
     return (
       <>
         <NavbarAdmin />
-        <div className="container-main">
-          <h3 className="title-hero"><ion-icon name="shield-half-outline"></ion-icon> Add a new candidate</h3>
-          <small className="totol-ac-hero">Total candidates: {this.state.candidateCount}</small>
-          <div className="container-item">
-            <form className="form">
 
-              <label className={"label-ac"}>
-                Header
-                <div className="field">
-                  <input
-                    className={"input-ac"}
-                    type="text"
-                    placeholder="eg. Marcus"
-                    value={this.state.header}
-                    onChange={this.updateHeader}
-                  />
-                </div>
-              </label>
-
-              <label className={"label-ac"}>
-                Slogan
-                <div className="field">
-                  <input
-                    className={"input-ac"}
-                    type="text"
-                    placeholder="eg. It is what it is"
-                    value={this.state.slogan}
-                    onChange={this.updateSlogan}
-                  />
-                </div>
-              </label>
-
-              <div className="ac-btn-center">
-                <div className="container-item no-shadow ">
-                  <button
-                    className="btn-add btn"
-                    disabled={
-                      this.state.header.length < 3 || this.state.header.length > 21
-                    }
-                    onClick={this.addCandidate}
-                  >
-                    Add
-                  </button>
-                </div>
-              </div>
-
-            </form>
-          </div>
-        </div>
         {loadAdded(this.state.candidates)}
       </>
     );
   }
 }
+
 export function loadAdded(candidates) {
   const renderAdded = (candidate) => {
     return (

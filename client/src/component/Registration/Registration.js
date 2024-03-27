@@ -140,7 +140,7 @@ export default class Registration extends Component {
           <>
 
             <div className="container-main">
-              <h3 className="title-hero"><ion-icon name="shield-half-outline"></ion-icon> Registration</h3>
+              <h3 className="title-hero"> Registration</h3>
               <div className="container-item">
                 <form>
 

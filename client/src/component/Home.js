@@ -160,7 +160,7 @@ export default class Home extends Component {
               <div className="container-main">
                 {/* about-admin */}
                 <div className="about-admin">
-                  <h3 className="title-hero"><ion-icon name="shield-half-outline"></ion-icon> About-Admin</h3>
+                  <h3 className="title-hero"> About-Admin</h3>
                   <div className="container-item center-items">
                     <div>
                       <label className="label-home">
@@ -226,7 +226,7 @@ export default class Home extends Component {
                 </div>
                 {/* about-election */}
                 <div className="about-election">
-                  <h3 className="title-hero"><ion-icon name="reader-outline"></ion-icon> About-Event</h3>
+                  <h3 className="title-hero"> About-Event</h3>
                   <div className="container-item center-items">
                     <div>
                       <label className="label-home">

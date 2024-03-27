@@ -22,11 +22,6 @@ export default function NavbarAdmin() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/AddCandidate" activeClassName="nav-active">
-            Add Candidate
-          </NavLink>
-        </li>
-        <li>
           <NavLink to="/Registration" activeClassName="nav-active">
             Registration
           </NavLink>
@@ -34,6 +29,11 @@ export default function NavbarAdmin() {
         <li>
           <NavLink to="/Voting" activeClassName="nav-active">
             Voting
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/Results" activeClassName="nav-active">
+            Results
           </NavLink>
         </li>
       </ul>

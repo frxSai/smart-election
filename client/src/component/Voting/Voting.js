@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 import Navbar from "../Navbar/Navigation";
 import NavbarAdmin from "../Navbar/NavigationAdmin";
 import NotInit from "../NotInit";
-
 import getWeb3 from "../../getWeb3";
 import Election from "../../contracts/Election.json";
 
@@ -99,6 +97,11 @@ export default class Voting extends Component {
         },
       });
 
+      if (this.state.candidates.length === 0) {
+        // Auto-generate candidates
+        await this.autoAddCandidates();
+      }
+
 
       const admin = await this.state.ElectionInstance.methods.getAdmin().call();
       if (this.state.account === admin) {
@@ -112,6 +115,23 @@ export default class Voting extends Component {
       console.error(error);
     }
   };
+
+  autoAddCandidates = async () => {
+    const candidatesToAdd = ["Candidate 1", "Candidate 2", "Candidate 3", "Candidate 4"];
+    const slogans = ["I love cat", "Vote for change", "Building a better future", "Unity in diversity"];
+
+    const currentCandidateCount = await this.state.ElectionInstance.methods.getTotalCandidate().call();
+    const candidatesToAddCount = Math.min(4 - currentCandidateCount, candidatesToAdd.length);
+
+    for (let i = 0; i < candidatesToAddCount; i++) {
+        const slogan = slogans[i] || "Default slogan";
+
+        await this.state.ElectionInstance.methods
+            .addCandidate(candidatesToAdd[i], slogan)
+            .send({ from: this.state.account, gas: 1000000 });
+    }
+};
+
 
   renderCandidates = (candidate) => {
     const castVote = async (id) => {
@@ -225,7 +245,7 @@ export default class Voting extends Component {
                 <h3 className="title-hero"> Candidates</h3>
                 {this.state.candidates.length < 1 ? (
                   <div className="container-item attention">
-                    <center>Not one to vote for.</center>
+                    <center>Refresh the page to generate candidates.</center>
                   </div>
                 ) : (
                   <>
@@ -259,3 +279,4 @@ export default class Voting extends Component {
     );
   }
 }
+
