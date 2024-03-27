@@ -31,4 +31,4 @@ How-to-use
 - Approve voter at verification page 
 - Vote candidate
 - End event at admin page
-- see result
+- Check event result
