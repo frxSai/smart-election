@@ -2,14 +2,13 @@
 install node.js
 
 
+install truffle and ganache-cli
+- npm install -g truffle
+- npm install -g ganache-cli
+
 install bootstrap and lite-server
 - npm i bootstrap @truffle/contract web3@1.10.4 jquery
 - npm i -g lite-server
-
-
-install
-- npm install -g truffle
-- npm install -g ganache-cli
 
 Run ganache-cli (local Ethereum blockchain)
 - ganache-cli
