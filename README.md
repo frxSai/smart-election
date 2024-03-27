@@ -21,6 +21,5 @@ run
 - npm install
 - npm start
 
-
 If cannot run ganache and truffle use this command in powershell.
 - Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
