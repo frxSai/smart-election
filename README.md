@@ -21,3 +21,7 @@ run
 - cd client
 - npm install
 - npm start
+
+
+PS
+- Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
