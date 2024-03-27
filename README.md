@@ -23,3 +23,12 @@ run
 
 If cannot run ganache and truffle use this command in powershell.
 - Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+
+How-to-use
+- Create and start Event
+- Register voter
+- Approve voter at verification page 
+- Vote candidate
+- End event at admin page
+- see result
