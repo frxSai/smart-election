@@ -1,14 +1,14 @@
 
-install node.js
+Install node.js
 - website: https://nodejs.org/en/download/current
 - Instant download: https://nodejs.org/dist/v21.7.1/node-v21.7.1-x64.msi
 
 
-install truffle and ganache-cli
+Install truffle and ganache-cli
 - npm install -g truffle
 - npm install -g ganache-cli
 
-install bootstrap and lite-server
+Install bootstrap and lite-server
 - npm i bootstrap @truffle/contract web3@1.10.4 jquery
 - npm i -g lite-server
 
@@ -21,7 +21,7 @@ Run ganache-cli (local Ethereum blockchain)
 Run migrate (blockchain network)
 - truffle migrate --reset
 
-run
+Deploy
 - cd client
 - npm install
 - npm start
