@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-
 import Navbar from "./Navbar/Navigation";
 import NavbarAdmin from "./Navbar/NavigationAdmin";
 import UserHome from "./UserHome";
 import StartEnd from "./StartEnd";
 import ElectionStatus from "./ElectionStatus";
-
 import getWeb3 from "../getWeb3";
 import Election from "../contracts/Election.json";
-
 import "./Home.css";
 
 export default class Home extends Component {
