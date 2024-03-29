@@ -1,5 +1,7 @@
 
 install node.js
+- website: https://nodejs.org/en/download/current
+- Instant download: https://nodejs.org/dist/v21.7.1/node-v21.7.1-x64.msi
 
 
 install truffle and ganache-cli
