@@ -21,7 +21,7 @@ Run ganache-cli (local Ethereum blockchain)
 Run migrate (blockchain network)
 - truffle migrate --reset
 
-Deploy
+Start
 - cd client
 - npm install
 - npm start
